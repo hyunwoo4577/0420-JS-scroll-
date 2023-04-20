@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+    <style>
+        * {box-sizing:border-box; margin: 0; padding:0;}
+        #slider_wrap {
+            height: 200px; /* overflow:hidden; */ margin:0 auto;
+        }
+        #slider_wrap #slider_container { position: relative;}
+        #slider_wrap #slider_container .slide {line-height: 200px; width: 700px; text-align: center; font-size: 5rem; position: absolute; left:0; top:0; opacity: 0; transition: opacity 0.5s;}
+        #slider_wrap #slider_container .slide1 {background: aqua;}
+        #slider_wrap #slider_container .slide2 {background: pink;}
+        #slider_wrap #slider_container .slide3 {background: coral;}
+    </style>
+</head>
+<body>
+    <div id="slider_wrap">
+        <div id="slider_container">
+            <div class="slide slide1">이</div>    
+            <div class="slide slide2">용</div>    
+            <div class="slide slide3">원</div>    
+        </div>
+    </div>
+    <script>
+        const slide = document.querySelectorAll('.slide')
+        let num = 0
+        let timer = setInterval(slide_timer,1000)
+        slide[0].style.opacity = 1
+        function slide_timer(){
+            num++
+            if(num>2){
+                num=0
+                for(let i of slide){i.style.opacity = 0}}
+            slide[num].style.opacity = '1' //초기화 = num이3이 될 때
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+    <style>
+        #slider_wrap{border:5px solid #000;
+            width: 700px; overflow:hidden; margin: 0 auto;}/* 700px이상의 것들을 안보이게 전체틀 영역을 짜준다*/
+        #slider_wrap #slider_container {
+            display: flex; width:max-content;
+            /* transform: translateX(0px);
+            transform: translateX(-700px);
+            transform: translateX(-1400px);
+             */
+        }
+        #slider_wrap #slider_container .slide {
+            
+            line-height: 200px; width: 700px; text-align: center; font-size: 5rem;
+        }
+        #slider_wrap #slider_container .slide1 {background: aqua;}
+        #slider_wrap #slider_container .slide2 {background: pink;}
+        #slider_wrap #slider_container .slide3 {background: coral;}
+    
+    </style>
+</head>
+<body>
+    <div id="slider_wrap">
+        <div id="slider_container">
+            <div class="slide slide1">이</div>    
+            <div class="slide slide2">용</div>    
+            <div class="slide slide3">원</div>    
+        </div>
+    </div>
+    <script>
+        const slide = document.querySelector('#slider_container')
+        let num = 1//1초간격으로 만들어진 변수에 1증가 시킴으로 밖에 변수를 작성한다
+        console.log(slide.firstElementChild.offsetWidth)
+        let slide_w = slide.firstElementChild.offsetWidth
+        setInterval(()=>{
+            console.log('setInterval-'+num)
+            console.log(slide.childElementCount)
+        let count = slide.childElementCount
+            num++
+            if(num>count-1){num=0}
+            slide.style.transition = 'all 0.3s ease'
+            slide.style.transform = `translateX(-${slide_w*num}px)`
+        },500)
+    </script>
+</body>
+</html>

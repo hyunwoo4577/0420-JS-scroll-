@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+</head>
+<body>
+    <script>
+        //setInterval 일정시간 반복 타이머 함수
+        let num = 0//1초간격으로 만들어진 변수에 1증가 시킴으로 밖에 변수를 작성한다
+        setInterval(()=>{
+            console.log('setInterval-'+num)
+            num++
+            if(num>5){num=0}
+        },300)
+        //슬라이드 만들때 이용원
+    </script>
+</body>
+</html>
